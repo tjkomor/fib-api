@@ -10,11 +10,10 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", handler)
-	http.Handle("/", r)
+	r.HandleFunc("/fibonacci", fibHandler)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "HELLO THIS IS WORKING")
+func fibHandler(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "FIBONACCI ENDPOINT")
 }
