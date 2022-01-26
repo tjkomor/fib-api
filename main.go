@@ -39,10 +39,10 @@ func main() {
 	fmt.Println("I AM CONNECTED TO THE FIB DATABASE")
 
 	r := mux.NewRouter()
-	r.HandleFunc("/fibonacci", fibHandler)
+	r.HandleFunc("/fibonacci", FibHandler)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
-func fibHandler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "FIBONACCI")
+func FibHandler(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "FIBONACCI ENDPOINT")
 }
